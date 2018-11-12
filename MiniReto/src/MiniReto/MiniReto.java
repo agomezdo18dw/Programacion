@@ -19,18 +19,8 @@ public class MiniReto {
 		return sumatorio;
 	}
 	public static int primerdigito(int digito) {
-		if (digito >= 1000) {
-			digito = digito / 1000;
-		}
-		else {
-			if (digito >= 100) {
-				digito = digito / 100;
-			}
-			else {
-				if (digito >= 10) {
-					digito = digito / 10;
-				}
-			}
+		while (digito > 10) {
+			digito = digito / 10;
 		}
 		return digito;
 	}
