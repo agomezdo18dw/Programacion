@@ -35,6 +35,7 @@ public class MiniReto {
 		System.out.print("Introduce un numero: ");
 		x = teclado.nextInt();
 		System.out.println();
+		System.out.println();
 		System.out.println("El factorial de " + x + " es: " + factorial(x));
 		System.out.println("El sumatorio de " + x + " es: " + sumatorio(x));
 		System.out.println("El primer digito de " + x + " es: " + primerdigito(x));
