@@ -10,9 +10,10 @@ public class escribir_fichero {
 		Scanner teclado = new Scanner (System.in);
 		String[] lineas = new String[10];
 		int i; 
-		System.out.println("Escribir en un fichero existente");
+		String x;
+		System.out.println("Escribir en un fichero");
 		for (i = 0; i < 10; i++) {
-			System.out.print("Introduce algo (" + i + "/9):	");
+			System.out.print("Introduce algo (Linea: " + i + "/9): ");
 			lineas[i] = teclado.nextLine();
 		}
 		System.out.println();
@@ -20,8 +21,9 @@ public class escribir_fichero {
 		/** FORMA 1 DE ESCRITURA **/
 		FileWriter fichero = null;
 		try {
-
-			fichero = new FileWriter("fichero_prueba.txt");
+			System.out.println("¿Como quieres que se llame el fichero?");
+			x = teclado.nextLine();
+			fichero = new FileWriter(x);
 
 			// Escribimos linea a linea en el fichero
 			for (String linea : lineas) {
