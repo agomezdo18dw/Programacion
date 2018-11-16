@@ -1,12 +1,21 @@
 package fichero;
 
 import java.io.FileWriter;
+import java.util.Scanner;
 
 public class escribir_fichero {
 
 	public static void main(String[] args) {
 		
-		String[] lineas = { "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "..." };
+		Scanner teclado = new Scanner (System.in);
+		String[] lineas = new String[10];
+		int i; 
+		System.out.println("Escribir en un fichero existente");
+		for (i = 0; i < 10; i++) {
+			System.out.print("Introduce algo (" + i + "/9):	");
+			lineas[i] = teclado.nextLine();
+		}
+		System.out.println();
 		System.out.println("...Editando fichero...");
 		/** FORMA 1 DE ESCRITURA **/
 		FileWriter fichero = null;
