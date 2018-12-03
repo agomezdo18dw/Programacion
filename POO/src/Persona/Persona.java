@@ -16,23 +16,26 @@ public class Persona {
 	
 	public String d () {
 		return dni;
-		
 	}
 	
 	public String desc () {
 		return descripcion;
-		
 	}
+	
 	public int num () {
 		return edad;
-		
 	}
+	
+	public void setEdad(int edad) {
+        this.edad = edad;
+    }
 	
 	public void MostrarDatos () {
 		System.out.println("La persona se llama " + nombre + ".");
 		System.out.println("La persona tiene " + edad + " años.");
 		System.out.println("El DNI de la persona es " + dni + ".");
 		System.out.println("La persona es " + descripcion + ".");
+		System.out.println();
 	}
 
 }
