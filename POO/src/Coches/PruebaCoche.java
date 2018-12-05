@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class PruebaCoche {
 
-	 static ArrayList<Coche> coches = new ArrayList();
+	 static ArrayList<Coche> coches = new ArrayList<>();
 	 static Scanner sc = new Scanner(System.in);
 	    
 	 public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class PruebaCoche {
 		 mostrarCoches();
 		 mostrarPorMarca();
 		 mostrarPorKm();
-		 System.out.println("Coche con mayor número de Km: " + mostrarMayorKm());
+		 System.out.println("\nCoche con mayor número de Km: " + mostrarMayorKm());
 		 System.out.println("\nCoches ordenados de menor a mayor número de Km");
 		 mostrarOrdenadosPorKm();
 	 }
