@@ -13,6 +13,7 @@ public class Ejecutable {
 	public static void main(String[] args) {
 		
 		leerDatos();
+	
 		
 
 	}
@@ -23,6 +24,7 @@ public class Ejecutable {
 		String nombre;
 		int edad;
 		String sexo;
+		String DNI;
 		double peso;
 		double altura;
 		Persona aux;
@@ -33,7 +35,7 @@ public class Ejecutable {
 			n = sc.nextInt();
 		} while (n < 0);
 		sc.nextLine(); //limpiar el intro
-		for (i = 1; i <=n; i++) {
+		for (i = 1; i <= n; i++) {
 			System.out.println("Persona: " + i);
 			System.out.print("Nombre: ");
 			nombre = sc.nextLine();
@@ -41,9 +43,11 @@ public class Ejecutable {
 			edad = sc.nextInt();
 			System.out.print("Sexo(H/M): ");
 			sexo = sc.nextLine();
-			System.out.print("Peso: ");
+			System.out.print("DNI: ");
+			DNI = sc.nextLine();
+			System.out.print("Peso en Kg: ");
 			peso = sc.nextDouble();
-			System.out.print("Altura: ");
+			System.out.print("Altura en M: ");
 			altura = sc.nextDouble();
 			sc.nextLine(); //limpiar el intro
 			//Se crea un objeto Persona y se asigna su referencia a aux se asignan valores a los atributos del nuevo objeto
@@ -51,11 +55,27 @@ public class Ejecutable {
 			aux.setNombre(nombre);
 			aux.setEdad(edad);
 			aux.setSexo(sexo);
+			aux.setDNI(DNI);
 			aux.setPeso(peso);
 			aux.setAltura(altura);
 			//se añade el objeto al final del array
 			personas.add(aux);
 		}
 	} //fin método leerDatos()
-
+	
+	public static void MuestraMensajePeso (Persona p) {
+		int IMC = p.calcularIMC();
+		switch (IMC) {
+			case Persona.PESO_IDEAL:
+				System.out.println("La persona esta en su peso ideal");
+				break;
+			case Persona.INFRAPESO:
+				System.out.println("La persona esta por debajo de su peso ideal");
+				break;
+			case Persona.SOBREPESE:
+				System.out.println("La persona esta por encima de su peso ideal");
+				break;
+		}
+	}
+	
 }

@@ -46,13 +46,29 @@ public class Persona {
 		this.altura = altura;
 	}
 	
-	/*public int calcularIMC() {
-		
+	public int calcularIMC() {
+		int pesoIdeal;
+		int x;
+		pesoIdeal = (int) (peso/Math.pow(altura, 2));
+		if (pesoIdeal < 20) {
+			x = -1;
+		}
+		else if (pesoIdeal <= 25) {
+			x = 0;
+		}
+		else {
+			x = 1;
+		}
+		return x;	
 	}
 	public boolean esMayorDeEdad() {
-		
+		boolean mayorDeEdad = false;
+		if (edad >= 18) {
+			mayorDeEdad = true;
+		}
+		return mayorDeEdad;
 	}
-	public String toString() {
+	/*public String toString() {
 		
 	}*/
 }
