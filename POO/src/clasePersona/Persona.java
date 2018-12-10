@@ -68,7 +68,21 @@ public class Persona {
 		}
 		return mayorDeEdad;
 	}
-	/*public String toString() {
-		
-	}*/
+	@Override
+    public String toString() {
+        String sexo;
+        if (this.sexo == "H") {
+            sexo = "hombre";
+        } else {
+            sexo = "mujer";
+        }
+        return "Informacion de la persona:\n"
+                + "Nombre: " + nombre + "\n"
+                + "Sexo: " + sexo + "\n"
+                + "Edad: " + edad + " años\n"
+                + "DNI: " + DNI + "\n"
+                + "Peso: " + peso + " kg\n"
+                + "Altura: " + altura + " metros\n";
+    }
+
 }

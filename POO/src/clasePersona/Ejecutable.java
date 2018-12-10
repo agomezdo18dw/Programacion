@@ -1,7 +1,6 @@
 package clasePersona;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 import Coches.Coche;
 
@@ -13,8 +12,6 @@ public class Ejecutable {
 	public static void main(String[] args) {
 		
 		leerDatos();
-	
-		
 
 	}
 	
@@ -78,4 +75,11 @@ public class Ejecutable {
 		}
 	}
 	
+	public static void MuestraMayorDeEdad(Persona p) { 
+        if (p.esMayorDeEdad()) {
+            System.out.println("La persona es mayor de edad");
+        } else {
+            System.out.println("La persona no es mayor de edad");
+        }
+    }	
 }
