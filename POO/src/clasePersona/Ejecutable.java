@@ -2,17 +2,15 @@ package clasePersona;
 
 import java.util.*;
 
-import Coches.Coche;
-
 public class Ejecutable {
 
 	static ArrayList<Persona> personas = new ArrayList<>();
 	static Scanner sc = new Scanner(System.in);
 	 
 	public static void main(String[] args) {
-		
+	
 		leerDatos();
-
+		MuestraMensajePeso();
 	}
 	
 	//Método para leer datos de las personas e introducirlos en el arraylist
@@ -38,6 +36,7 @@ public class Ejecutable {
 			nombre = sc.nextLine();
 			System.out.print("Edad: ");
 			edad = sc.nextInt();
+			sc.nextLine();
 			System.out.print("Sexo(H/M): ");
 			sexo = sc.nextLine();
 			System.out.print("DNI: ");
@@ -69,7 +68,7 @@ public class Ejecutable {
 			case Persona.INFRAPESO:
 				System.out.println("La persona esta por debajo de su peso ideal");
 				break;
-			case Persona.SOBREPESE:
+			case Persona.SOBREPESO:
 				System.out.println("La persona esta por encima de su peso ideal");
 				break;
 		}

@@ -61,6 +61,9 @@ public class Persona {
 		}
 		return x;	
 	}
+	public static final int INFRAPESO = -1;
+	public static final int PESO_IDEAL = 0;
+	public static final int SOBREPESO = 1;
 	public boolean esMayorDeEdad() {
 		boolean mayorDeEdad = false;
 		if (edad >= 18) {
