@@ -58,9 +58,9 @@ public class Ejecutable {
         } else {
             System.out.println("La persona no es mayor de edad");
         }
-    }
+	}
 	
-	 public static void mostrarPersona(Persona p){      
+	public static void mostrarPersona(Persona p){      
 		 System.out.println(p.toString());
-	 }
+	}
 }

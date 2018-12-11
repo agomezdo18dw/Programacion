@@ -10,7 +10,6 @@ public class Persona {
 	private double altura;
 	
 	public Persona(String pNombre, int pEdad, String pSexo, String pDNI, double pPeso, double pAltura) {
-		
 		nombre = pNombre;
 		edad = pEdad;
 		sexo = pSexo;
@@ -82,6 +81,7 @@ public class Persona {
 		}
 		return mayorDeEdad;
 	}
+	
 	@Override
     public String toString() {
         String sexo;
