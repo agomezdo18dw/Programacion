@@ -4,10 +4,20 @@ public class Persona {
 
 	private String nombre;
 	private int edad;
-	private String DNI;
 	private String sexo;
+	private String DNI;
 	private double peso;
 	private double altura;
+	
+	public Persona(String pNombre, int pEdad, String pSexo, String pDNI, double pPeso, double pAltura) {
+		
+		nombre = pNombre;
+		edad = pEdad;
+		sexo = pSexo;
+		DNI = pDNI;
+		peso = pPeso;
+		altura = pAltura;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -64,6 +74,7 @@ public class Persona {
 	public static final int INFRAPESO = -1;
 	public static final int PESO_IDEAL = 0;
 	public static final int SOBREPESO = 1;
+	
 	public boolean esMayorDeEdad() {
 		boolean mayorDeEdad = false;
 		if (edad >= 18) {
@@ -74,7 +85,7 @@ public class Persona {
 	@Override
     public String toString() {
         String sexo;
-        if (this.sexo == "H") {
+        if (this.sexo.equalsIgnoreCase("H")) {
             sexo = "hombre";
         } else {
             sexo = "mujer";
