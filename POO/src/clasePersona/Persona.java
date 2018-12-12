@@ -86,9 +86,9 @@ public class Persona {
     public String toString() {
         String sexo;
         if (this.sexo.equalsIgnoreCase("H")) {
-            sexo = "hombre";
+            sexo = "Hombre";
         } else {
-            sexo = "mujer";
+            sexo = "Mujer";
         }
         return "Informacion de la persona:\n"
                 + "Nombre: " + nombre + "\n"
