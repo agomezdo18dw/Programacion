@@ -15,9 +15,11 @@ public class NIF {
 	public long getDNI() {
 		return DNI;
 	}
+	
 	public void setDNI(int DNI) {
 		this.DNI = DNI;
 	}
+	
 	public char calcularDNI(int dni) {
 		String caracteres="TRWAGMYFPDXBNJZSQVHLCKE";
         int resto = dni%23;
