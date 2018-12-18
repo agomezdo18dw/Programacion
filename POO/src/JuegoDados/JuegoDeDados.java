@@ -22,12 +22,24 @@ public class JuegoDeDados {
         dado3.imprimir();
         dado3.sumaPuntos();
         suma = dado1.retornarValor() + dado2.retornarValor() + dado3.retornarValor();
+        System.out.println("La suma del resultado es: " + suma);
         if (dado1.retornarValor() == dado2.retornarValor() && dado1.retornarValor() == dado3.retornarValor()) {
-        	suma =+ 10;
+        	suma = suma + 10;
+        	 System.out.println("El jugador ha sacado un trio, se suman 10 puntos");
+        	 System.out.println("El resultado final es: " + suma);
         }
-        	else { 
-        		System.out.println("Perdió");
-        	}        
-        System.out.println(suma);
+        else if (dado1.retornarValor() == dado2.retornarValor() || dado1.retornarValor() == dado3.retornarValor() || dado2.retornarValor() == dado3.retornarValor()) {
+        	suma = suma + 5;
+        	System.out.println("El jugador ha sacado una pareja, se suman 5 puntos");
+        	System.out.println("El resultado final es: " + suma);
+        }
+        System.out.println();
     }
+    public int resultado() {
+    	int resultado = 0;
+    	return resultado = suma;
+    }
+
+	
+    	
 }
