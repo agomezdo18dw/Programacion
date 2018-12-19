@@ -36,8 +36,7 @@ public class JuegoDeDados {
         System.out.println();
     }
     public int resultado() {
-    	int resultado = 0;
-    	return resultado = suma;
+    	return suma;
     }
 
 	
