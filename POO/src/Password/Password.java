@@ -21,11 +21,9 @@ public class Password {
 	public boolean esFuerte() {
 		
 	}
-	
 	public String generarPassword() {
 		
 	}
-	
 	public int longitudPassword(Stribg pass) {
 		
 	}
