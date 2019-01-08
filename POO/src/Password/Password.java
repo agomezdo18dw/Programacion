@@ -1,5 +1,7 @@
 package Password;
 
+import java.util.Scanner;
+
 public class Password {
 
 	private int longitud;
@@ -21,10 +23,20 @@ public class Password {
 	public boolean esFuerte() {
 		
 	}
+	public static String numeros = "0123456789";
+	public static String mayusculas = "ABCDEFGHIJKLMNÑIPQRSTUVWXYZ";
+	public static String minusculas = "abcdefghijklmnñopqrstuvwxyz";
+	
 	public String generarPassword() {
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Scribe una contraseña que por lo menos tenga 11 caracteres y solo sean mayusculas, minusculas y numeros.");
+		String contraseña = sc.nextLine();
+		for (int con = 0; con < contraseña.length(); con++)
+		for (int num = 0; num < numeros.length(); num++)
+		
 	}
-	public int longitudPassword(Stribg pass) {
+	public int longitudPassword(String pass) {
 		
 	}
 }
