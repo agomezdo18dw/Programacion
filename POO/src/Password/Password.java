@@ -34,6 +34,9 @@ public class Password {
 		String contraseña = sc.nextLine();
 		for (int con = 0; con < contraseña.length(); con++)
 		for (int num = 0; num < numeros.length(); num++)
+		for (int mayus = 0; mayus < mayusculas.length(); mayus++)
+		for (int minus = 0; minus < minusculas.length(); minus++)
+		if ()
 		
 	}
 	public int longitudPassword(String pass) {
