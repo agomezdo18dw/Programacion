@@ -26,36 +26,14 @@ public class Password {
 	
 	public String generarPassword() {
 		Scanner sc = new Scanner(System.in);
-		String contraseña="";
-		int longitud = 0;
-        for (int i = 0; i < 11; i++){
-        	
-            int eleccion=((int)Math.floor(Math.random()*3+1));
-  
-            if (eleccion==1){
-                char minusculas=(char)((int)Math.floor(Math.random()*(123-97)+97));
-                contraseña+=minusculas;
-            }else{
-                if(eleccion==2){
-                    char mayusculas=(char)((int)Math.floor(Math.random()*(91-65)+65));
-                    contraseña+=mayusculas;
-                }else{
-                    char numeros=(char)((int)Math.floor(Math.random()*(58-48)+48));
-                    contraseña+=numeros;
-                }
-            }
-           longitud++;
-        }
-        if (longitud < 11) {
-        	System.out.print("La contraseña tiene menos de 11 caracteres, escribe una contraseña que por lo menos tenga 11 caracteres y solo sean mayusculas, minusculas y numeros.");
-        	contraseña = sc.nextLine();
-        	for (int con = 0; con < contraseña.length(); con++)
-        		for (int num = 0; num < numeros.length(); num++)
-        			for (int mayus = 0; mayus < mayusculas.length(); mayus++)
-        				for (int minus = 0; minus < minusculas.length(); minus++)
-        					if (con != num || con != mayus || con != minus) {
-        						System.out.print("Has introducido caracteres no validos, escriba otra contraseña");
-        					}
+		String contraseña;
+		
+		System.out.println("Escribe una contraseña (para que sea fuerte necesita tener almenos 2 mayusculas, 1 minuscula, 5 numeros y 11 caracteres):");
+        contraseña = sc.nextLine();
+        while (contraseña.length() < 11) {
+        	System.out.println("La contraseña introducida tiene menos de 11 caracteres.");
+        	System.out.print("Escribe otra contraseña: ");
+            contraseña = sc.nextLine();
         }
 		return contraseña;
 		
@@ -86,7 +64,6 @@ public class Password {
 	}
 	
 	public int longitudPassword(String pass) {
-		
-		return longitud;
+		return pass.length();
 	}
 }
