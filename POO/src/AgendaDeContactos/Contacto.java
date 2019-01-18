@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  *
- * @author UsuarioPC5
+ * @author Adrián Gómez Domínguez
  */
 public class Contacto {
     private String nombre;

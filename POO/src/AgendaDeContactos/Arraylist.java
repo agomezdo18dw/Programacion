@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author UsuarioPC5
+ * @author Adrián Gómez Domínguez
  */
 public class Arraylist {
     static Scanner scan = new Scanner(System.in);
@@ -43,6 +43,7 @@ public class Arraylist {
                     imprimeLista(Contactos);
                     break;
                 case 6: // Para evitar que entre a default
+                	salir();
                     break;
                 default:
                     System.out.println("Opción incorrecta. Elija otra");
@@ -67,6 +68,8 @@ public class Arraylist {
     }// Fin método nuevoContacto
     
     public static void existeContacto(ArrayList<Contacto> Contactos){
+    	System.out.println("Introduzca nombre del Contacto:");
+        String nombre = scan.nextLine();
         
     }
     
@@ -89,9 +92,9 @@ public class Arraylist {
         // Pedir datos y leerlos
         System.out.println("Introduzca nombre del Contacto");
         String nombre = scan.nextLine();
-        /*System.out.println("Introduzca telefono del Contacto");
+        System.out.println("Introduzca telefono del Contacto");
         int telefono = scan.nextInt();
-        scan.nextLine(); // Para que lea el salto el salto de línea*/
+        scan.nextLine(); // Para que lea el salto el salto de línea
         // Crear objeto Contacto
         Contacto p = new Contacto(nombre, telefono);
         // Buscar el Contacto
@@ -105,13 +108,18 @@ public class Arraylist {
     // Método para eliminar un Contacto
     public static void eliminarContacto(ArrayList<Contacto> Contactos){
         // Pedimos que se introduzca la posición
-        System.out.println("Introduzca posición del Contacto a eliminar");
+        System.out.print("Introduzca posición del Contacto a eliminar: ");
         int posicion = scan.nextInt();
         // Antes de borrarlo lo extraemos para mostrarlo
-        Contacto p = Contactos.get(posicion);
+        Contacto p = Contactos.get(posicion - 1);
         // Se muestra
-        System.out.println("Se va a eliminar el Contacto " + p.toString());
+        System.out.println("Se ha eliminado el Contacto: " + p.toString());
         // Se elimina
         Contactos.remove(posicion);
+        System.out.println("");
+    }
+    
+    public static void salir() {
+    	System.out.println("El programa se cerro.");
     }
 }
