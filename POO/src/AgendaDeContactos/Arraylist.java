@@ -11,36 +11,36 @@ public class Arraylist {
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         int opcion;
-        ArrayList<Producto> productos = new ArrayList<Producto>();
+        ArrayList<Contacto> Contactos = new ArrayList<Contacto>();
         do{
             // Mostrar menú
             System.out.println("Menú:");
-            System.out.println(" 1. Añadir nuevo producto");
-            System.out.println(" 2. Buscar producto");
-            System.out.println(" 3. Eliminar producto");
-            System.out.println(" 4. Ver lista de productos");
-            System.out.println(" 5. Número de productos");
-            System.out.println(" 6. Salir");
-            System.out.println("Introduzca opción");
+            System.out.println(" 1. Añadir nuevo Contacto.");
+            System.out.println(" 2. Existe contacto.");
+            System.out.println(" 3. Buscar Contacto.");
+            System.out.println(" 4. Eliminar Contacto.");
+            System.out.println(" 5. Ver lista de Contactos.");
+            System.out.println(" 6. Salir.");
+            System.out.print("Introduzca opción: ");
             // Leer opción
             opcion = scan.nextInt();
             scan.nextLine(); // Para que lea el salto el salto de línea
             // Según opción
             switch (opcion){
                 case 1:
-                    nuevoProducto(productos);
+                    nuevoContacto(Contactos);
                     break;
                 case 2:
-                    buscarProducto(productos);
+                    existeContacto(Contactos);
                     break;
                 case 3:
-                    eliminarProducto(productos);
+                    buscarContacto(Contactos);
                     break;
                 case 4:
-                    imprimeLista(productos);
+                    eliminarContacto(Contactos);
                     break;
                 case 5:
-                    contarProductos(productos);
+                    imprimeLista(Contactos);
                     break;
                 case 6: // Para evitar que entre a default
                     break;
@@ -50,64 +50,68 @@ public class Arraylist {
         }while(opcion != 6);
     } // Fin main
     
-    // Método para añadir producto a la lista
-    public static void nuevoProducto(ArrayList<Producto> productos){
+    // Método para añadir Contacto a la lista
+    public static void nuevoContacto(ArrayList<Contacto> Contactos){
         // Pedir datos y leerlos
-        System.out.println("Introduzca nombre del producto");
+        System.out.println("Introduzca nombre del Contacto:");
         String nombre = scan.nextLine();
-        System.out.println("Introduzca precio del producto");
-        double precio = scan.nextDouble();
+        System.out.println("Introduzca telefono del Contacto:");
+        int telefono = scan.nextInt();
         scan.nextLine(); // Para que lea el salto el salto de línea
-        // Crear objeto Producto
-        Producto p = new Producto(nombre, precio);
-        // Añadir el producto a la lista
-        productos.add(p);
-    }// Fin método nuevoProducto
+        // Crear objeto Contacto
+        Contacto p = new Contacto(nombre, telefono);
+        // Añadir el Contacto a la lista
+        Contactos.add(p);
+        System.out.println("El contacto " + nombre + " se añadio correctamente.");
+        System.out.println();
+    }// Fin método nuevoContacto
     
-    // Método para buscar un producto
-    public static void buscarProducto(ArrayList<Producto> productos){
+    public static void existeContacto(ArrayList<Contacto> Contactos){
+        
+    }
+    
+ // Método para imprimir Contacto
+    public static void imprimeLista(ArrayList<Contacto> Contactos){
+    	int num = 1;
+        System.out.println("Contactos: --> ");
+        // Este for crea un Objeto de Contacto llamado product que corresponde
+        // a cada elemento de la lista según la iteración en la que esté
+        for (Contacto product: Contactos){
+            // La llamada a toString puede omitirse, es implicita dentro de println
+            System.out.println(" " + num + "- " + product.toString());
+            num++;
+        }
+        System.out.println("");
+    }
+    
+    // Método para buscar un Contacto
+    public static void buscarContacto(ArrayList<Contacto> Contactos){
         // Pedir datos y leerlos
-        System.out.println("Introduzca nombre del producto");
+        System.out.println("Introduzca nombre del Contacto");
         String nombre = scan.nextLine();
-        System.out.println("Introduzca precio del producto");
-        double precio = scan.nextDouble();
-        scan.nextLine(); // Para que lea el salto el salto de línea
-        // Crear objeto Producto
-        Producto p = new Producto(nombre, precio);
-        // Buscar el producto
-        int posicion = productos.indexOf(p);
+        /*System.out.println("Introduzca telefono del Contacto");
+        int telefono = scan.nextInt();
+        scan.nextLine(); // Para que lea el salto el salto de línea*/
+        // Crear objeto Contacto
+        Contacto p = new Contacto(nombre, telefono);
+        // Buscar el Contacto
+        int posicion = Contactos.indexOf(p);
         if (posicion >= 0)
             System.out.println("Está en la posición " + posicion);
         else
-            System.out.println("No está en la lista de productos");
+            System.out.println("No está en la lista de Contactos");
     }
     
-    // Método para eliminar un producto
-    public static void eliminarProducto(ArrayList<Producto> productos){
+    // Método para eliminar un Contacto
+    public static void eliminarContacto(ArrayList<Contacto> Contactos){
         // Pedimos que se introduzca la posición
-        System.out.println("Introduzca posición del producto a eliminar");
+        System.out.println("Introduzca posición del Contacto a eliminar");
         int posicion = scan.nextInt();
         // Antes de borrarlo lo extraemos para mostrarlo
-        Producto p = productos.get(posicion);
+        Contacto p = Contactos.get(posicion);
         // Se muestra
-        System.out.println("Se va a eliminar el producto " + p.toString());
+        System.out.println("Se va a eliminar el Contacto " + p.toString());
         // Se elimina
-        productos.remove(posicion);
-    }
-    
-    // Método para imprimir Producto
-    public static void imprimeLista(ArrayList<Producto> productos){
-        System.out.println("PRODUCTOS: --> ");
-        // Este for crea un Objeto de Producto llamado product que corresponde
-        // a cada elemento de la lista según la iteración en la que esté
-        for (Producto product: productos){
-            // La llamada a toString puede omitirse, es implicita dentro de println
-            System.out.println(" - " + product.toString());
-        }
-    }
-    
-    public static void contarProductos(ArrayList<Producto> productos){
-        int numProductos = productos.size();
-        System.out.println("La lista contiene " + numProductos + " productos");
+        Contactos.remove(posicion);
     }
 }

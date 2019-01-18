@@ -6,13 +6,13 @@ import java.util.Objects;
  *
  * @author UsuarioPC5
  */
-public class Producto {
+public class Contacto {
     private String nombre;
-    private double precio;
+    private int telefono;
 
-    public Producto(String nombre, double precio) {
+    public Contacto(String nombre, int telefono) {
         this.nombre = nombre;
-        this.precio = precio;
+        this.telefono = telefono;
     }
 
     public String getNombre() {
@@ -23,17 +23,17 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getTelefono() {
+        return telefono;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
     @Override
     public String toString() {
-        return nombre + ". Precio = " + precio;
+        return nombre + ". Telefono: " + telefono;
     }
 
     
@@ -42,15 +42,15 @@ public class Producto {
         if (obj == null) {
             return false;
         }
-        if (!(obj instanceof Producto)) {
+        if (!(obj instanceof Contacto)) {
             return false;
         }
-        Producto other = (Producto) obj;
+        Contacto other = (Contacto) obj;
         // System.out.println(this.nombre + " -- " + other.nombre);
         if (!other.nombre.equals(this.nombre)) {
             return false;
         }
-        if (other.precio != this.precio) {
+        if (other.telefono != this.telefono) {
             return false;
         }
         return true;
