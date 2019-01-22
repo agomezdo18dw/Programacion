@@ -47,6 +47,7 @@ public class Arraylist {
                     break;
                 default:
                     System.out.println("Opción incorrecta. Elija otra");
+                    System.out.println();
             } // Fin switch
         }while(opcion != 6);
     } // Fin main
@@ -99,10 +100,11 @@ public class Arraylist {
         Contacto p = new Contacto(nombre, telefono);
         // Buscar el Contacto
         int posicion = Contactos.indexOf(p);
-        if (posicion >= 0)
-            System.out.println("Está en la posición " + posicion);
-        else
+        if (posicion >= 0) 
+            System.out.println("Está en la posición " + posicion + 1);
+        else 
             System.out.println("No está en la lista de Contactos");
+        System.out.println();
     }
     
     // Método para eliminar un Contacto
