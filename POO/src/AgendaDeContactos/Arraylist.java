@@ -16,11 +16,10 @@ public class Arraylist {
             // Mostrar menú
             System.out.println("Menú:");
             System.out.println(" 1. Añadir nuevo Contacto.");
-            System.out.println(" 2. Existe contacto.");
-            System.out.println(" 3. Buscar Contacto.");
-            System.out.println(" 4. Eliminar Contacto.");
-            System.out.println(" 5. Ver lista de Contactos.");
-            System.out.println(" 6. Salir.");
+            System.out.println(" 2. Buscar Contacto.");
+            System.out.println(" 3. Eliminar Contacto.");
+            System.out.println(" 4. Ver lista de Contactos.");
+            System.out.println(" 5. Salir.");
             System.out.print("Introduzca opción: ");
             // Leer opción
             opcion = scan.nextInt();
@@ -31,30 +30,30 @@ public class Arraylist {
                     nuevoContacto(Contactos);
                     break;
                 case 2:
-                    existeContacto(Contactos);
-                    break;
-                case 3:
                     buscarContacto(Contactos);
                     break;
-                case 4:
+                case 3:
                     eliminarContacto(Contactos);
                     break;
-                case 5:
+                case 4:
                     imprimeLista(Contactos);
                     break;
-                case 6: // Para evitar que entre a default
+                case 5: // Para evitar que entre a default
                 	salir();
                     break;
                 default:
                     System.out.println("Opción incorrecta. Elija otra");
                     System.out.println();
             } // Fin switch
-        }while(opcion != 6);
+        }while(opcion != 5);
     } // Fin main
     
     // Método para añadir Contacto a la lista
     public static void nuevoContacto(ArrayList<Contacto> Contactos){
-        // Pedir datos y leerlos
+    	if (existeContacto(Contactos) == false) {
+    		
+    	}
+    	// Pedir datos y leerlos
         System.out.println("Introduzca nombre del Contacto:");
         String nombre = scan.nextLine();
         System.out.println("Introduzca telefono del Contacto:");
@@ -68,9 +67,10 @@ public class Arraylist {
         System.out.println();
     }// Fin método nuevoContacto
     
-    public static void existeContacto(ArrayList<Contacto> Contactos){
-    	System.out.println("Introduzca nombre del Contacto:");
-        String nombre = scan.nextLine();
+    public static existeContacto(ArrayList<Contacto> Contactos){
+    	boolean exist;
+    	
+    	return exist;
         
     }
     
