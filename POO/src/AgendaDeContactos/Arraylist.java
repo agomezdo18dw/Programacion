@@ -9,9 +9,9 @@ import java.util.Scanner;
  */
 public class Arraylist {
     static Scanner scan = new Scanner(System.in);
+    static ArrayList<Contacto> Contactos = new ArrayList<Contacto>();
     public static void main(String[] args) {
         int opcion;
-        ArrayList<Contacto> Contactos = new ArrayList<Contacto>();
         do{
             // Mostrar menú
             System.out.println("Menú:");
@@ -50,26 +50,37 @@ public class Arraylist {
     
     // Método para añadir Contacto a la lista
     public static void nuevoContacto(ArrayList<Contacto> Contactos){
-    	if (existeContacto(Contactos) == false) {
-    		
-    	}
-    	// Pedir datos y leerlos
-        System.out.println("Introduzca nombre del Contacto:");
+    	System.out.println("Introduzca nombre del Contacto:");
         String nombre = scan.nextLine();
-        System.out.println("Introduzca telefono del Contacto:");
-        int telefono = scan.nextInt();
-        scan.nextLine(); // Para que lea el salto el salto de línea
-        // Crear objeto Contacto
-        Contacto p = new Contacto(nombre, telefono);
-        // Añadir el Contacto a la lista
-        Contactos.add(p);
-        System.out.println("El contacto " + nombre + " se añadio correctamente.");
-        System.out.println();
+   
+        if (existeContacto(nombre) == true) {
+        	System.out.println("El contacto ya existe.");
+        	System.out.println();
+        } 
+        else {
+        	// Pedir datos y leerlos
+        	System.out.println("Introduzca telefono del Contacto:");
+        	int telefono = scan.nextInt();
+        	scan.nextLine(); // Para que lea el salto el salto de línea
+        	// Crear objeto Contacto
+        	Contacto p = new Contacto(nombre, telefono);
+        	// Añadir el Contacto a la lista
+        	Contactos.add(p);
+        	System.out.println("El contacto " + nombre + " se añadio correctamente.");
+        	System.out.println();
+        	
+        }
     }// Fin método nuevoContacto
-    
-    public static existeContacto(ArrayList<Contacto> Contactos){
-    	boolean exist;
     	
+    public static boolean existeContacto(String nombre){
+    	boolean exist = false;
+    	 for(int i = 0; i < Contactos.size(); i++){
+             if(Contactos.get(i).getNombre().equalsIgnoreCase(nombre))
+                 exist = true;
+             else 
+        		 exist = false;
+         } 
+    	 
     	return exist;
         
     }
@@ -117,7 +128,7 @@ public class Arraylist {
         // Se muestra
         System.out.println("Se ha eliminado el Contacto: " + p.toString());
         // Se elimina
-        Contactos.remove(posicion);
+        Contactos.remove(posicion - 1);
         System.out.println("");
     }
     
