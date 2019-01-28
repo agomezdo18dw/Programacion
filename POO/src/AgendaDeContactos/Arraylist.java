@@ -30,7 +30,9 @@ public class Arraylist {
                     nuevoContacto(Contactos);
                     break;
                 case 2:
-                    buscarContacto(Contactos);
+                	System.out.println("Introduzca nombre del Contacto");
+                    String nombreBuscar = scan.nextLine();
+                    buscarContacto(nombreBuscar);
                     break;
                 case 3:
                     eliminarContacto(Contactos);
@@ -100,23 +102,16 @@ public class Arraylist {
     }
     
     // Método para buscar un Contacto
-    public static void buscarContacto(ArrayList<Contacto> Contactos){
-        // Pedir datos y leerlos
-        System.out.println("Introduzca nombre del Contacto");
-        String nombre = scan.nextLine();
-        System.out.println("Introduzca telefono del Contacto");
-        int telefono = scan.nextInt();
-        scan.nextLine(); // Para que lea el salto el salto de línea
-        // Crear objeto Contacto
-        Contacto p = new Contacto(nombre, telefono);
-        // Buscar el Contacto
-        int posicion = Contactos.indexOf(p);
-        if (posicion >= 0) 
-            System.out.println("Está en la posición " + posicion + 1);
-        else 
-            System.out.println("No está en la lista de Contactos");
-        System.out.println();
+    public static void buscarContacto(String nombre){
+    	for (Contacto mostrarContacto: Contactos) //Recorre el arraylist y cada contacto por cada vuelta el que toque lo guarda en una variable mostrarContacto 
+		{
+		   if (mostrarContacto.getNombre().equalsIgnoreCase(nombre)) {	//Compara el nombre del objeto en la variable con el nombre que le pasamos y si son iguales los muestra en pantalla
+		           System.out.println(mostrarContacto.toString());
+		   }	
+		}
+    	System.out.println();
     }
+
     
     // Método para eliminar un Contacto
     public static void eliminarContacto(ArrayList<Contacto> Contactos){
