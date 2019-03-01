@@ -60,6 +60,7 @@ public class MainPersona {
         String direccion = scan.nextLine();
         System.out.println("Introduzca el codigo postal de la persona:");
         int codigoPostal = scan.nextInt();
+        scan.nextLine();
         System.out.println("Introduzca la ciudad en la que la persona vive:");
         String ciudad = scan.nextLine();
         System.out.println("Introduzca la edad de la persona:");
