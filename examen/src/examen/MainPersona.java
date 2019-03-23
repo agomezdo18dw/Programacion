@@ -38,17 +38,17 @@ public class MainPersona {
                 case 4:
                 	System.out.println("¿Que poblacion?");
                 	String poblacion = scan.nextLine();
-                	//cuantasPersonasVivenEn(poblacion);
+                	cuantasPersonasVivenEn(poblacion);
                     break;
                 case 5:
                 	System.out.println("Has añadido " + personasMayoresDeEdad(Persona) + " personas que son mayores de edad.");
+                	System.out.println();
                 	break;
                 case 6:
                 	salir();
                     break;
                 default:
                     System.out.println("Opción incorrecta. Elija otra");
-                    System.out.println();
             }
         }while(opcion != 6);
 	}
@@ -60,6 +60,7 @@ public class MainPersona {
         String direccion = scan.nextLine();
         System.out.println("Introduzca el codigo postal de la persona:");
         int codigoPostal = scan.nextInt();
+        scan.nextLine();
         System.out.println("Introduzca la ciudad en la que la persona vive:");
         String ciudad = scan.nextLine();
         System.out.println("Introduzca la edad de la persona:");
@@ -86,16 +87,21 @@ public class MainPersona {
 		return num;
 	}
 	
-	//No consigo hacer que cuantasPersonas funcione, al parecer no permite poner un string como argumento
-	/*public static int cuantasPersonasVivenEn(poblacion) {
-		
-	}*/
+	public static void cuantasPersonasVivenEn(String poblacion) {
+		int numeroPersonas = 0;
+		for (Persona product: Persona) {
+			if (product.getCiudad().equalsIgnoreCase(poblacion)) {
+				numeroPersonas++;
+			}
+		}
+		System.out.println("En " + poblacion + " viven " + numeroPersonas + " personas.");
+		System.out.println();
+	}
 	
-	//No me deja llamar a la funcion esMayorDeEdad() de la clase Persona.
-	public static int personasMayoresDeEdad(ArrayList<Persona> p) {
+	public static int personasMayoresDeEdad(ArrayList<Persona>persona) {
 		int num = 1;
-		for (Persona product: Persona){
-			if (p.esMayorDeEdad()) {
+		for (Persona product: persona){
+			if (product.esMayorDeEdad()) {
 				num++;
 	        } 
 		}
