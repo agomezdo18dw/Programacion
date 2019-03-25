@@ -3,10 +3,10 @@ package Ejemplitos;
 //STEP 1. Import required packages
 import java.sql.*;
 
-public class CrearDB {
+public class EliminarDatos {
  // JDBC driver name and database URL
  static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
- static final String DB_URL = "jdbc:mysql://localhost/";
+ static final String DB_URL = "jdbc:mysql://localhost/STUDENTS";
 
  //  Database credentials
  static final String USER = "root";
@@ -20,16 +20,36 @@ public class CrearDB {
     Class.forName("com.mysql.jdbc.Driver");
 
     //STEP 3: Open a connection
-    System.out.println("Connecting to database...");
+    System.out.println("Connecting to a selected database...");
     conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-    //STEP 4: Execute a query
-    System.out.println("Creating database...");
-    stmt = conn.createStatement();
+    System.out.println("Connected database successfully...");
     
-    String sql = "CREATE DATABASE STUDENTS";
+    //STEP 4: Execute a query
+    System.out.println("Creating statement...");
+    stmt = conn.createStatement();
+    String sql = "DELETE FROM Registration " +
+                 "WHERE id = 101";
     stmt.executeUpdate(sql);
-    System.out.println("Database created successfully...");
+
+    // Now you can extract all the records
+    // to see the remaining records
+    sql = "SELECT id, first, last, age FROM Registration";
+    ResultSet rs = stmt.executeQuery(sql);
+
+    while(rs.next()){
+       //Retrieve by column name
+       int id  = rs.getInt("id");
+       int age = rs.getInt("age");
+       String first = rs.getString("first");
+       String last = rs.getString("last");
+
+       //Display values
+       System.out.print("ID: " + id);
+       System.out.print(", Age: " + age);
+       System.out.print(", First: " + first);
+       System.out.println(", Last: " + last);
+    }
+    rs.close();
  }catch(SQLException se){
     //Handle errors for JDBC
     se.printStackTrace();
@@ -40,9 +60,9 @@ public class CrearDB {
     //finally block used to close resources
     try{
        if(stmt!=null)
-          stmt.close();
-    }catch(SQLException se2){
-    }// nothing we can do
+          conn.close();
+    }catch(SQLException se){
+    }// do nothing
     try{
        if(conn!=null)
           conn.close();
