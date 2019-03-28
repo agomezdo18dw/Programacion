@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MainPersona {
 	
 	static Scanner scan = new Scanner(System.in);
-    static ArrayList<Persona> Persona = new ArrayList<Persona>();
+    static ArrayList<Persona> Personas = new ArrayList<Persona>();
     
 	public static void main(String[] args) {
 		
@@ -41,7 +41,7 @@ public class MainPersona {
                 	cuantasPersonasVivenEn(poblacion);
                     break;
                 case 5:
-                	System.out.println("Has añadido " + personasMayoresDeEdad(Persona) + " personas que son mayores de edad.");
+                	System.out.println("Has añadido " + personasMayoresDeEdad(Personas) + " personas que son mayores de edad.");
                 	System.out.println();
                 	break;
                 case 6:
@@ -68,7 +68,7 @@ public class MainPersona {
         scan.nextLine();
  
         Persona p = new Persona(nombre, direccion, codigoPostal, ciudad, edad);
-        Persona.add(p);
+        Personas.add(p);
         System.out.println("La persona: " + nombre + ", se añadio correctamente.");
         System.out.println();
 	}
@@ -76,20 +76,20 @@ public class MainPersona {
 	public static void mostrar() {
 		int num = 1;
         System.out.println("Personas añadidas:");
-        for (Persona product: Persona){
+        for (Persona product: Personas){
             System.out.println(" " + num + "- " + product.toString());
             num++;
         }
 	}
 	
 	public static int numeroDePersonas() {
-		int num = Persona.size();
+		int num = Personas.size();
 		return num;
 	}
 	
 	public static void cuantasPersonasVivenEn(String poblacion) {
 		int numeroPersonas = 0;
-		for (Persona product: Persona) {
+		for (Persona product: Personas) {
 			if (product.getCiudad().equalsIgnoreCase(poblacion)) {
 				numeroPersonas++;
 			}
@@ -98,9 +98,9 @@ public class MainPersona {
 		System.out.println();
 	}
 	
-	public static int personasMayoresDeEdad(ArrayList<Persona>persona) {
-		int num = 1;
-		for (Persona product: persona){
+	public static int personasMayoresDeEdad(ArrayList<Persona>edad) {
+		int num = 0;
+		for (Persona product: edad){
 			if (product.esMayorDeEdad()) {
 				num++;
 	        } 
