@@ -41,7 +41,7 @@ public class MainPersona {
                 	cuantasPersonasVivenEn(poblacion);
                     break;
                 case 5:
-                	System.out.println("Has añadido " + personasMayoresDeEdad(Personas) + " personas que son mayores de edad.");
+                	System.out.println("Has añadido " + personasMayoresDeEdad() + " personas que son mayores de edad.");
                 	System.out.println();
                 	break;
                 case 6:
@@ -98,9 +98,9 @@ public class MainPersona {
 		System.out.println();
 	}
 	
-	public static int personasMayoresDeEdad(ArrayList<Persona>edad) {
+	public static int personasMayoresDeEdad() {
 		int num = 0;
-		for (Persona product: edad){
+		for (Persona product: Personas){
 			if (product.esMayorDeEdad()) {
 				num++;
 	        } 
