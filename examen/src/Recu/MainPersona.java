@@ -2,7 +2,6 @@
  * @author Adrian Gomez Dominguez
  */
 
-
 package Recu;
 
 import java.util.ArrayList;
